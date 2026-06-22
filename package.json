@@ -1,0 +1,30 @@
+{
+  "name": "sealhouse",
+  "version": "1.0.6",
+  "description": "Free and open source alternative to DocuSign",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "lint-staged-changes": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sealhouse/sealhouse"
+  },
+  "keywords": [
+    "digital",
+    "signature",
+    "e-signature",
+    "docusign",
+    "electronic",
+    "signature"
+  ],
+  "author": "Sealhouse contributors",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.6.2"
+  }
+}
