@@ -3,11 +3,14 @@ beforeAll(
   async () => {
     await startParseServer();
   },
-  100 * 60 * 2
+  1000 * 60 * 2
 );
 
-afterAll(async () => {
-  await dropDB();
-  await stopParseServer();
-  await cleanupTestFiles();
-});
+afterAll(
+  async () => {
+    await dropDB();
+    await stopParseServer();
+    await cleanupTestFiles();
+  },
+  1000 * 60 * 2
+);
