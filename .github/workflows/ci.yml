@@ -14,11 +14,6 @@ on:
 permissions:
   contents: read
 
-env:
-  CI: true
-  PROJECT_ROOT: ${{ github.workspace }}
-  PROJECT_DATA_ROOT: ${{ github.workspace }}\..\..\data
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -50,7 +45,9 @@ jobs:
 
       - name: Build frontend
         working-directory: apps\OpenSign
-        run: npm.cmd run build
+        run: |
+          set "CI=true"
+          npm.cmd run build
 
   server:
     name: Server dependency and syntax check
@@ -78,4 +75,6 @@ jobs:
 
       - name: Check server entrypoint syntax
         working-directory: apps\OpenSignServer
-        run: node --check index.js
+        run: |
+          set "CI=true"
+          node --check index.js
