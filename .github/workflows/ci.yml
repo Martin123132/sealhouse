@@ -18,11 +18,11 @@ env:
   CI: true
   PROJECT_ROOT: ${{ github.workspace }}
   PROJECT_DATA_ROOT: ${{ github.workspace }}\..\..\data
-  TEMP: ${{ github.workspace }}\..\..\tmp
-  TMP: ${{ github.workspace }}\..\..\tmp
-  npm_config_cache: ${{ github.workspace }}\..\..\cache\npm
-  PIP_CACHE_DIR: ${{ github.workspace }}\..\..\cache\pip
-  PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}\..\..\cache\ms-playwright
+  TEMP: ${{ runner.temp }}
+  TMP: ${{ runner.temp }}
+  npm_config_cache: ${{ runner.temp }}\npm
+  PIP_CACHE_DIR: ${{ runner.temp }}\pip
+  PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}\ms-playwright
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
