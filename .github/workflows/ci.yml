@@ -18,11 +18,6 @@ env:
   CI: true
   PROJECT_ROOT: ${{ github.workspace }}
   PROJECT_DATA_ROOT: ${{ github.workspace }}\..\..\data
-  TEMP: ${{ runner.temp }}
-  TMP: ${{ runner.temp }}
-  npm_config_cache: ${{ runner.temp }}\npm
-  PIP_CACHE_DIR: ${{ runner.temp }}\pip
-  PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}\ms-playwright
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -46,7 +41,12 @@ jobs:
 
       - name: Install frontend dependencies
         working-directory: apps\OpenSign
-        run: npm.cmd ci
+        run: |
+          if not exist "%RUNNER_TEMP%\npm" mkdir "%RUNNER_TEMP%\npm"
+          set "TEMP=%RUNNER_TEMP%"
+          set "TMP=%RUNNER_TEMP%"
+          set "npm_config_cache=%RUNNER_TEMP%\npm"
+          npm.cmd ci
 
       - name: Build frontend
         working-directory: apps\OpenSign
@@ -69,7 +69,12 @@ jobs:
 
       - name: Install server dependencies
         working-directory: apps\OpenSignServer
-        run: npm.cmd ci
+        run: |
+          if not exist "%RUNNER_TEMP%\npm" mkdir "%RUNNER_TEMP%\npm"
+          set "TEMP=%RUNNER_TEMP%"
+          set "TMP=%RUNNER_TEMP%"
+          set "npm_config_cache=%RUNNER_TEMP%\npm"
+          npm.cmd ci
 
       - name: Check server entrypoint syntax
         working-directory: apps\OpenSignServer
