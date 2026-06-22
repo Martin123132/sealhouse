@@ -37,6 +37,7 @@ export default async function saveFile(request) {
         // const fileRes = getSecureUrl(presignedUrl);
         // return { url: fileRes.url };
         try {
+          let fileUrl;
           const fileRes = await parseUploadFile(fileName, file, mimeType);
           fileUrl = getSecureUrl(fileRes?.url)?.url;
           return { url: fileUrl };

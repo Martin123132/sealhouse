@@ -1,4 +1,4 @@
-import { startParseServer, stopParseServer, dropDB } from './utils/test-runner.js';
+import { startParseServer, stopParseServer, dropDB, cleanupTestFiles } from './utils/test-runner.js';
 beforeAll(
   async () => {
     await startParseServer();
@@ -9,4 +9,5 @@ beforeAll(
 afterAll(async () => {
   await dropDB();
   await stopParseServer();
+  await cleanupTestFiles();
 });
