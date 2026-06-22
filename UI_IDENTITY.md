@@ -9,6 +9,9 @@ the working signing flow, CI smoke tests, and public-safe development posture.
 - Browser metadata is already Sealhouse: `apps/OpenSign/index.html`,
   `apps/OpenSign/public/manifest.json`, and the public API docs use the new
   product name.
+- The English locale has a first-pass Sealhouse copy cleanup for visible
+  paid-plan, billing, credit, subscription, and old OpenSign plan labels. The
+  locale keys remain stable to avoid breaking component wiring.
 - Many runtime defaults now resolve to `Sealhouse`, including headers, reports,
   login/setup pages, menus, and mail template samples.
 - Internal implementation names still carry OpenSign wording. Examples include
