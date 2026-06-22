@@ -1,0 +1,76 @@
+name: Sealhouse CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  CI: true
+  PROJECT_ROOT: ${{ github.workspace }}
+  PROJECT_DATA_ROOT: ${{ github.workspace }}\..\..\data
+  TEMP: ${{ github.workspace }}\..\..\tmp
+  TMP: ${{ github.workspace }}\..\..\tmp
+  npm_config_cache: ${{ github.workspace }}\..\..\cache\npm
+  PIP_CACHE_DIR: ${{ github.workspace }}\..\..\cache\pip
+  PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}\..\..\cache\ms-playwright
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  frontend:
+    name: Frontend build
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: cmd
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install frontend dependencies
+        working-directory: apps\OpenSign
+        run: npm.cmd ci
+
+      - name: Build frontend
+        working-directory: apps\OpenSign
+        run: npm.cmd run build
+
+  server:
+    name: Server dependency and syntax check
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: cmd
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install server dependencies
+        working-directory: apps\OpenSignServer
+        run: npm.cmd ci
+
+      - name: Check server entrypoint syntax
+        working-directory: apps\OpenSignServer
+        run: node --check index.js
