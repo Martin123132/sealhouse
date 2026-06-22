@@ -20,6 +20,21 @@ function setTestEnvDefaults() {
   process.env.FILES_SUBDIRECTORY = 'files/smoke';
 }
 
+function getTestDatabaseURI() {
+  const uri = process.env.DATABASE_URI || process.env.MONGODB_URI;
+  if (!uri) return 'mongodb://localhost:27017/parse-test';
+
+  try {
+    const parsed = new URL(uri);
+    if (!parsed.pathname || parsed.pathname === '/') {
+      parsed.pathname = '/parse-test';
+    }
+    return parsed.toString();
+  } catch {
+    return uri;
+  }
+}
+
 /**
  * Starts the ParseServer instance
  * @param {Object} parseServerOptions Used for creating the `ParseServer`
@@ -30,7 +45,7 @@ export async function startParseServer() {
   const { app, config } = await import('../../index.js');
   delete config.databaseAdapter;
   const parseServerOptions = Object.assign(config, {
-    databaseURI: 'mongodb://localhost:27017/parse-test',
+    databaseURI: getTestDatabaseURI(),
     masterKey: 'test',
     javascriptKey: 'test',
     appId: 'test',

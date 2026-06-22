@@ -55,6 +55,8 @@ set TESTING=true&& npx.cmd jasmine --random=false
 
 The smoke test generates a synthetic admin, signer, PDF, signature image, and PFX certificate at runtime. It must not use real customer documents, real signatures, production certificates, or external mail/storage services.
 
+GitHub Actions runs the same generated-data smoke on a Windows runner. The CI job starts MongoDB with `mongodb-runner` and keeps runner metadata, downloads, logs, and temp files under the Actions temp directory.
+
 ## Privacy And Publication
 
 The GitHub repository is public. Before pushing, re-check the repository for credentials, private certificates, generated documents, hosted-service defaults, and inherited upstream publishing workflows.
