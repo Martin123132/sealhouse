@@ -19,6 +19,7 @@ import { SSOAuth } from './auth/authadapter.js';
 import runDbMigrations from './migrationdb/index.js';
 import { validateSignedLocalUrl } from './cloud/parsefunction/getSignedUrl.js';
 let fsAdapter;
+const filesSubDirectory = process.env.FILES_SUBDIRECTORY || 'files';
 
 if (useLocal !== 'true') {
   try {
@@ -48,12 +49,12 @@ if (useLocal !== 'true') {
   } catch (err) {
     console.log('Please provide AWS credintials in env file! Defaulting to local storage.');
     fsAdapter = new FSFilesAdapter({
-      filesSubDirectory: 'files', // optional, defaults to ./files
+      filesSubDirectory,
     });
   }
 } else {
   fsAdapter = new FSFilesAdapter({
-    filesSubDirectory: 'files', // optional, defaults to ./files
+    filesSubDirectory,
   });
 }
 

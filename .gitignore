@@ -25,3 +25,6 @@ yarn-error.log*
 apps/OpenSign/public/mfbuild/*
 microfrontends/SignDocuments/build/*
 apps/OpenSignServer/files/files/*
+apps/OpenSignServer/files/smoke/*
+apps/OpenSignServer/exports/*.pdf
+apps/OpenSignServer/keystore_*.pfx

@@ -1,6 +1,8 @@
 import http from 'http';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import Parse from 'parse/node';
 import { ParseServer } from 'parse-server';
-import { app, config } from '../../index.js';
 
 export const dropDB = async () => {
   await Parse.User.logOut();
@@ -8,12 +10,24 @@ export const dropDB = async () => {
 };
 let parseServerState = {};
 
+function setTestEnvDefaults() {
+  process.env.TESTING = 'true';
+  process.env.SERVER_URL = 'http://localhost:30001/test';
+  process.env.APP_ID = 'test';
+  process.env.MASTER_KEY = 'test';
+  process.env.USE_LOCAL = 'true';
+  process.env.APP_NAME = 'Sealhouse';
+  process.env.FILES_SUBDIRECTORY = 'files/smoke';
+}
+
 /**
  * Starts the ParseServer instance
  * @param {Object} parseServerOptions Used for creating the `ParseServer`
  * @return {Promise} Runner state
  */
 export async function startParseServer() {
+  setTestEnvDefaults();
+  const { app, config } = await import('../../index.js');
   delete config.databaseAdapter;
   const parseServerOptions = Object.assign(config, {
     databaseURI: 'mongodb://localhost:27017/parse-test',
@@ -37,6 +51,14 @@ export async function startParseServer() {
     parseServerOptions,
   });
   return parseServerOptions;
+}
+
+export async function cleanupTestFiles() {
+  if (process.env.FILES_SUBDIRECTORY !== 'files/smoke') return;
+  await fs.rm(path.join(process.cwd(), process.env.FILES_SUBDIRECTORY), {
+    recursive: true,
+    force: true,
+  });
 }
 
 /**
