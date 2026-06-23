@@ -1,7 +1,7 @@
 {
   "name": "sealhouse",
   "version": "1.0.6",
-  "description": "Free and open source alternative to DocuSign",
+  "description": "Self-hosted document signing for private signature workflows",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,9 +16,10 @@
     "digital",
     "signature",
     "e-signature",
-    "docusign",
-    "electronic",
-    "signature"
+    "self-hosted",
+    "documents",
+    "pdf",
+    "workflow"
   ],
   "author": "Sealhouse contributors",
   "license": "AGPL-3.0",
