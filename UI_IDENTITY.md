@@ -12,6 +12,9 @@ the working signing flow, CI smoke tests, and public-safe development posture.
 - The English locale has a first-pass Sealhouse copy cleanup for visible
   paid-plan, billing, credit, subscription, and old OpenSign plan labels. The
   locale keys remain stable to avoid breaking component wiring.
+- Default visible assets now include Sealhouse favicon, manifest icons, and a
+  dark-mode logo fallback while preserving existing asset filenames and import
+  paths.
 - Many runtime defaults now resolve to `Sealhouse`, including headers, reports,
   login/setup pages, menus, and mail template samples.
 - Internal implementation names still carry OpenSign wording. Examples include
@@ -66,9 +69,10 @@ Recommended visual direction:
 
 2. Sealhouse asset pass
 
-   Replace the default visible logo, dark logo, favicon, manifest icons, and
-   email logo fallback with Sealhouse-owned placeholder assets. Keep file names
-   stable if that avoids import churn.
+   Replace the remaining email logo fallback and audit any secondary images that
+   still feel inherited. The default logo, dark logo, favicon, and manifest
+   icons now have Sealhouse-owned placeholder assets. Keep file names stable if
+   that avoids import churn.
 
 3. Theme token pass
 
