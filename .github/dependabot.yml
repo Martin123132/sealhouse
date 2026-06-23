@@ -1,22 +1,44 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
-
 version: 2
 updates:
-  # maintain dependencies for frontend
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/apps/OpenSign" # Location of package manifests
+  - package-ecosystem: "npm"
+    directory: "/apps/OpenSign"
+    target-branch: "develop"
     schedule:
       interval: "weekly"
-  # maintain dependencies for server
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/apps/OpenSignServer" # Location of package manifests
+    open-pull-requests-limit: 5
+    groups:
+      frontend-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+    ignore:
+      - dependency-name: "@babel/*"
+        update-types:
+          - "version-update:semver-major"
+      - dependency-name: "@mui/*"
+        update-types:
+          - "version-update:semver-major"
+
+  - package-ecosystem: "npm"
+    directory: "/apps/OpenSignServer"
+    target-branch: "develop"
     schedule:
       interval: "weekly"
-  # maintain dependencies for microfrontends
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "microfrontends/SignDocuments" # Location of package manifests
+    open-pull-requests-limit: 5
+    groups:
+      server-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: "npm"
+    directory: "/microfrontends/SignDocuments"
+    target-branch: "develop"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 3
+    groups:
+      signing-microfrontend-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
