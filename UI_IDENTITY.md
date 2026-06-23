@@ -6,9 +6,9 @@ the working signing flow, CI smoke tests, and public-safe development posture.
 
 ## Current State
 
-- Browser metadata is already Sealhouse: `apps/OpenSign/index.html`,
-  `apps/OpenSign/public/manifest.json`, and the public API docs use the new
-  product name.
+- Browser metadata is Sealhouse-facing: `apps/OpenSign/index.html`,
+  `apps/OpenSign/public/manifest.json`, and the public API docs use the product
+  name and self-hosted description.
 - The English locale has a first-pass Sealhouse copy cleanup for visible
   paid-plan, billing, credit, subscription, and old OpenSign plan labels. The
   locale keys remain stable to avoid breaking component wiring.
@@ -21,8 +21,9 @@ the working signing flow, CI smoke tests, and public-safe development posture.
   theme IDs such as `opensigncss` and `opensigndark`, the default app id
   `opensign`, `Opensigndrive` component and style names, locale keys such as
   `opensign-setup`, and comments like `isOpenSignPad`.
-- The visible UI still depends on legacy assets: `logo.png`, `logo-dark.png`,
-  favicon/manifest icons, and several login/document images.
+- The visible UI still has secondary inherited images to audit, especially
+  login and document illustrations. The default logo, dark logo, favicon, and
+  manifest icons are now Sealhouse-owned placeholders.
 - Locales are partly reworded to Sealhouse, but some keys still describe old
   commercial concepts such as credits, plans, billing, and subscriptions.
 
@@ -62,17 +63,17 @@ Recommended visual direction:
 
 1. Public string cleanup
 
-   Inventory the English locale, login/setup screens, dashboard navigation,
-   signer flow, API docs, and email templates. Replace visible OpenSign remnants
-   and subscription-platform copy with self-hosted Sealhouse language. Keep
+   Extend the English pass into any remaining login/setup, dashboard navigation,
+   signer flow, API docs, and email-template surfaces. Then audit non-English
+   locales for visible OpenSign remnants and subscription-platform copy. Keep
    locale keys unchanged where changing keys would create churn.
 
 2. Sealhouse asset pass
 
    Replace the remaining email logo fallback and audit any secondary images that
    still feel inherited. The default logo, dark logo, favicon, and manifest
-   icons now have Sealhouse-owned placeholder assets. Keep file names stable if
-   that avoids import churn.
+   icons now have Sealhouse-owned placeholder assets. Keep file names stable
+   when that avoids import churn.
 
 3. Theme token pass
 
@@ -88,9 +89,9 @@ Recommended visual direction:
 
 5. Commercial-copy removal
 
-   Remove or soften credit, billing, plan, subscription, and quota language from
-   public self-hosted flows. Where a limit is still technically enforced, explain
-   it as an instance policy controlled by the administrator.
+   Continue removing or softening credit, billing, plan, subscription, and quota
+   language from public self-hosted flows. Where a limit is still technically
+   enforced, explain it as an instance policy controlled by the administrator.
 
 6. Internal rename pass
 

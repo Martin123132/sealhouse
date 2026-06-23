@@ -63,4 +63,8 @@ The GitHub repository is public. Before pushing, re-check the repository for cre
 
 ## UI Identity Lane
 
-The current Sealhouse rebrand is mostly metadata, copy, docs, and repository posture. A deeper UI identity pass should separately revisit navigation, empty states, signer-facing screens, icons, palette, and product voice so the app feels natively Sealhouse rather than a renamed fork.
+The current Sealhouse rebrand now covers repository metadata, English UI copy,
+public docs, and default browser/manifest assets. A deeper UI identity pass
+should separately revisit navigation, empty states, signer-facing screens,
+secondary illustrations, palette, and product voice so the app feels natively
+Sealhouse rather than a renamed fork.
