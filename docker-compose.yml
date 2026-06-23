@@ -1,3 +1,7 @@
+# Sealhouse compatibility compose.
+# The application images and `opensign-files` volume intentionally keep
+# upstream OpenSign names until Sealhouse publishes dedicated images and a
+# migration path for existing volumes.
 services:
   server:
     image: opensign/opensignserver:main
@@ -29,7 +33,7 @@ services:
     container_name: OpenSign-container
     depends_on:
       - server
-    env_file: .env.prod  
+    env_file: .env.prod
     ports:
       - "3000:3000"
     networks:
