@@ -1,82 +1,81 @@
+# Contributing To Sealhouse
 
-# Contributing to OpenSign
+Thanks for helping make Sealhouse a practical self-hosted signing app.
 
-Hello there! Thank you for considering contributing to OpenSign, the open-source alternative to DocuSign. OpenSign is not just a project, but a community endeavor that aims to create a robust, user-friendly, and secure electronic signature solution. Your contributions, irrespective of their size, are valuable in making this vision a reality.
+Sealhouse is public, so contributions must be safe to publish. Use synthetic
+data, keep changes small, and target `develop` unless a maintainer explicitly
+asks for another branch.
 
-## Hacktoberfest at OpenSign
+## Branch Workflow
 
-We are excited to announce that OpenSign is participating in Hacktoberfest! Hacktoberfest is a month-long celebration of open source where contributors can earn swag by contributing to open source projects. It's a fantastic opportunity to contribute, learn, and engage with the community. We welcome contributions of all kinds, and we are looking forward to seeing your contributions!
+- `main` is the protected release branch.
+- `develop` is the integration branch.
+- Feature branches should use a short descriptive name such as
+  `codex/docs-identity-cleanup`.
+- Pull requests should target `develop`.
 
-### Hacktoberfest Guidelines
+## Public-Safety Rules
 
-1. **Registration:** Ensure you have signed up for [Hacktoberfest](https://hacktoberfest.digitalocean.com/) before making contributions to qualify for rewards.
-2. **Quality Standards:** Substantial contributions are encouraged. PRs with minor text edits or that are deemed as low effort by maintainers may be marked as "invalid" or "spam".
-3. **Pull Requests:** Only pull requests submitted between October 1st and October 31st will count towards the event.
-4. **Respect:** Adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) and maintain a respectful and collaborative environment.
+Do not commit:
 
-## Table of Contents
+- real customer documents, signatures, names, emails, or contact data
+- credentials, tokens, API keys, or private URLs
+- `.env` files
+- signing certificates or private keys
+- generated PDFs, uploads, exports, screenshots, logs, cache folders, MongoDB
+  data, or build output
 
-1. [Getting Started](#getting-started)
-2. [Code of Conduct](#code-of-conduct)
-3. [How Can I Contribute?](#how-can-i-contribute)
-    - [Reporting Bugs](#reporting-bugs)
-    - [Suggesting Enhancements](#suggesting-enhancements)
-    - [Pull Requests](#pull-requests)
-4. [Style Guidelines](#style-guidelines)
-    - [Git Commit Messages](#git-commit-messages)
-    - [JavaScript Style Guide](#javascript-style-guide)
-5. [Community](#community)
-6. [License](#license)
+Use generated test identities and synthetic PDFs for tests and examples.
 
-## Getting Started
+## D-Drive Development Rule
 
-- Fork the [OpenSign repository](https://github.com/OpenSignLabs/OpenSign) to your GitHub account.
-- Clone your fork locally: `git clone https://github.com/your-username/OpenSign.git`
-- Create a new branch for your contribution: `git checkout -b feature/your-feature-name`
-- Make your contributions.
-- Push your branch to your fork: `git push origin feature/your-feature-name`
-- Create a Pull Request from your fork to the OpenSign repository.
+On this workstation, keep generated state under:
 
-## Code of Conduct
+```text
+D:\Codex\esignature\src\open-signature
+```
 
-We expect all our contributors to adhere to the [Code of Conduct](CODE_OF_CONDUCT.md). Please read it thoroughly before contributing.
+Use the helper scripts in `tools/` where possible. They are designed to keep
+dependencies, caches, temp output, Mongo data, uploads, and build artifacts away
+from the small C drive.
 
-## How Can I Contribute?
+## Before Opening A Pull Request
 
-### Reporting Bugs
+Run the checks relevant to your change:
 
-- Check the [Issues](https://github.com/OpenSignLabs/OpenSign/issues) to see if the bug has already been reported. If it has, add any additional information in the comments.
-- If the bug hasn’t been reported, create a new issue. Please provide as much information as possible to help maintainers reproduce the bug.
+```powershell
+tools\build-client-d-drive.cmd
+```
 
-### Suggesting Enhancements
+```powershell
+cd apps\OpenSignServer
+node --check index.js
+```
 
-- Use the [Issues](https://github.com/OpenSignLabs/OpenSign/issues) section to suggest any enhancements or new features.
-- Clearly describe your suggestion, explaining the problem it solves or the functionality it adds.
+```powershell
+npm run test:smoke
+```
 
-### Pull Requests
+For docs-only changes, at minimum run:
 
-- Ensure any install or build dependencies are removed before the end of the layer when doing a build.
-- Update the README.md with details of changes to the interface, this includes new environment variables, exposed ports, useful file locations, and container parameters.
-- You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
+```powershell
+git diff --check
+```
 
-## Style Guidelines
+## Pull Request Notes
 
-### Git Commit Messages
+In the PR description, include:
 
-- Use the present tense ("Add feature" not "Added feature")
-- Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-- Limit the first line to 72 characters or less
+- changed files
+- user-facing impact
+- validation commands and results
+- any remaining compatibility surfaces or follow-up work
 
-### JavaScript Style Guide
-
-Adhere to the [Standard JavaScript Style Guide](https://standardjs.com).
-
-## Community
-
-Engage with the community on our [Gitter Channel](https://gitter.im/OpenSignLabs/community) or join our monthly community calls. Details can be found on our [Community Page](COMMUNITY.md).
+Keep internal compatibility names in place unless the PR includes tests and a
+clear migration note. Examples include old Docker image names, CSS theme IDs,
+routes, Parse class names, and persisted app identifiers.
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under its [AGPL-V3 License](LICENSE).
-
----
+By contributing, you agree that your contribution will be licensed under the
+AGPL-3.0 license used by this repository.

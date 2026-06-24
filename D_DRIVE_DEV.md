@@ -1,6 +1,6 @@
 # D-Drive Development Notes
 
-This fork is being worked under `D:\Codex\esignature\src\open-signature`.
+Sealhouse is being worked under `D:\Codex\esignature\src\open-signature`.
 
 Do not run installs, database services, browser downloads, uploads, generated PDFs, or temporary-file workflows from C.
 
@@ -55,13 +55,14 @@ The corresponding local URI is:
 mongodb://127.0.0.1:27017/SealhouseDB
 ```
 
-## First Fork Tasks
+## Current Local Priorities
 
-1. Remove hosted-service defaults from local developer configs.
-2. Replace Sealhouse product naming in fork-visible UI with neutral project naming.
-3. Remove subscription, premium credit, quota, and upgrade paths from self-hosted UI.
+1. Keep hosted-service defaults out of local developer configs.
+2. Continue replacing fork-visible UI and docs copy with Sealhouse wording.
+3. Continue auditing non-English locales and limit/quota copy for self-hosted
+   instance language.
 4. Replace or relicense-audit `apps\OpenSignServer\cloud\customRoute`.
-5. Add a repeatable no-Docker local boot path for Windows with all state on D.
+5. Keep the no-Docker Windows boot path repeatable with all generated state on D.
 
 ## No-Docker Boot Path
 

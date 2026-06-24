@@ -1,71 +1,54 @@
+# Sealhouse Code Of Conduct
 
----
+Sealhouse should be a friendly, safe, and useful open source project for
+contributors and users with many different backgrounds and levels of experience.
 
-# Code of Conduct for OpenSign
+## Expected Behavior
 
-## 1. Introduction
+- Be respectful and considerate in issues, pull requests, reviews, chat, and any
+  other project space.
+- Assume good intent where reasonable, and ask clarifying questions before
+  escalating conflict.
+- Keep feedback focused on the work and its impact.
+- Protect privacy. Do not post private customer data, credentials, documents,
+  signatures, personal contact details, or sensitive reports in public project
+  spaces.
+- Help keep the project practical for self-hosters by documenting risks,
+  tradeoffs, and setup steps clearly.
 
-A primary goal of OpenSign is to be inclusive to the largest number of contributors, with the most varied and diverse backgrounds possible. As such, we are committed to providing a friendly, safe, and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
+## Unacceptable Behavior
 
-This code of conduct outlines our expectations for all those who participate in our community, as well as the consequences for unacceptable behavior.
+The following behavior is not acceptable in Sealhouse project spaces:
 
-We invite all those who participate in OpenSign to help us create safe and positive experiences for everyone.
+- harassment, intimidation, stalking, threats, or sustained disruption
+- discriminatory language or behavior
+- sexualized comments, imagery, or unwelcome attention
+- publishing or threatening to publish another person's private information
+- personal attacks or insults
+- knowingly posting secrets, real customer data, private documents, or private
+  signatures
+- encouraging any of the above behavior
 
-## 2. Open Source Citizenship
+## Reporting
 
-A supplemental goal of this Code of Conduct is to increase open source citizenship by encouraging participants to recognize and strengthen the relationships between our actions and their effects on our community.
+If you experience or witness unacceptable behavior, contact the repository
+maintainers through an available private GitHub channel. If no private channel is
+available, open a public issue with only non-sensitive details and ask for a
+maintainer contact path.
 
-Communities mirror the societies in which they exist and positive action is essential to counteract the many forms of inequality and abuses of power that exist in society.
+Do not include credentials, private URLs, customer data, real signatures, or
+private documents in a public report.
 
-## 3. Expected Behavior
+## Enforcement
 
-The following behaviors are expected and requested of all community members:
+Maintainers may remove comments, close issues or pull requests, request edits,
+limit participation, or ban participants when needed to protect the project and
+its community.
 
-- Participate in an authentic and active way. In doing so, you contribute to the health and longevity of this community.
-- Exercise consideration and respect in your speech and actions.
-- Attempt collaboration before conflict.
-- Refrain from demeaning, discriminatory, or harassing behavior and speech.
-- Be mindful of your surroundings and of your fellow participants. Alert community leaders if you notice a dangerous situation, someone in distress, or violations of this Code of Conduct, even if they seem inconsequential.
+If you believe an enforcement action was incorrect, contact the maintainers with
+a concise explanation and any relevant non-sensitive context.
 
-## 4. Unacceptable Behavior
+## Scope
 
-The following behaviors are considered harassment and are unacceptable within our community:
-
-- Violence, threats of violence, or violent language directed against another person.
-- Sexist, racist, homophobic, transphobic, ableist or otherwise discriminatory jokes and language.
-- Posting or displaying sexually explicit or violent material.
-- Posting or threatening to post other people’s personally identifying information ("doxing").
-- Personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
-- Inappropriate photography or recording.
-- Inappropriate physical contact. You should have someone’s consent before touching them.
-- Unwelcome sexual attention. This includes sexualized comments or jokes; inappropriate touching, groping, and unwelcomed sexual advances.
-- Deliberate intimidation, stalking or following (online or in person).
-- Advocating for, or encouraging, any of the above behavior.
-
-## 5. Consequences of Unacceptable Behavior
-
-Unacceptable behavior from any community member, including sponsors and those with decision-making authority, will not be tolerated.
-
-Anyone asked to stop unacceptable behavior is expected to comply immediately.
-
-If a community member engages in unacceptable behavior, the community organizers may take any action they deem appropriate, up to and including a temporary ban or permanent expulsion from the community without warning (and without refund in the case of a paid event).
-
-## 6. Reporting Guidelines
-
-If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a community organizer as soon as possible by emailing [contact@opensignlabs.com](mailto:contact@opensignlabs.com).
-
-[Reporting guidelines](REPORTING_GUIDELINES.md)
-
-## 7. Addressing Grievances
-
-If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify the OpenSign administration with a concise description of your grievance. Your grievance will be handled in accordance with our existing governing policies.
-
-## 8. Scope
-
-We expect all community participants (contributors, paid or otherwise; sponsors; and other guests) to abide by this Code of Conduct in all community venues—online and in-person—as well as in all one-on-one communications pertaining to community business.
-
-## 9. Contact info
-
-[contact@opensignlabs.com](mailto:contact@opensignlabs.com)
-
----
+This code of conduct applies in all Sealhouse project spaces and in one-to-one
+communications related to project work.
