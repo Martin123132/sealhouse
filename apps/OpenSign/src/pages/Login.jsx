@@ -44,7 +44,7 @@ function Login() {
     Destination: ""
   });
   const [isModal, setIsModal] = useState(false);
-  const [image, setImage] = useState();
+  const [image, setImage] = useState(appInfo.applogo);
   const [errMsg, setErrMsg] = useState();
   useEffect(() => {
     handleUserExist();
@@ -434,7 +434,7 @@ function Login() {
                   <img
                     src={image}
                     className="object-contain h-full"
-                    alt="applogo"
+                    alt="Sealhouse"
                   />
                 )}
               </div>

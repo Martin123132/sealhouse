@@ -19,6 +19,7 @@ import { SSOAuth } from './auth/authadapter.js';
 import runDbMigrations from './migrationdb/index.js';
 import { validateSignedLocalUrl } from './cloud/parsefunction/getSignedUrl.js';
 let fsAdapter;
+const filesSubDirectory = process.env.FILES_SUBDIRECTORY || 'files';
 
 if (useLocal !== 'true') {
   try {
@@ -48,12 +49,12 @@ if (useLocal !== 'true') {
   } catch (err) {
     console.log('Please provide AWS credintials in env file! Defaulting to local storage.');
     fsAdapter = new FSFilesAdapter({
-      filesSubDirectory: 'files', // optional, defaults to ./files
+      filesSubDirectory,
     });
   }
 } else {
   fsAdapter = new FSFilesAdapter({
-    filesSubDirectory: 'files', // optional, defaults to ./files
+    filesSubDirectory,
   });
 }
 
@@ -230,7 +231,7 @@ app.use('/', customRoute);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function (req, res) {
-  res.status(200).send('opensign-server is running !!!');
+  res.status(200).send('sealhouse-server is running');
 });
 
 if (!process.env.TESTING) {
@@ -240,7 +241,7 @@ if (!process.env.TESTING) {
   httpServer.keepAliveTimeout = 100000; // in milliseconds
   httpServer.headersTimeout = 100000; // in milliseconds
   httpServer.listen(port, '0.0.0.0', function () {
-    console.log('opensign-server running on port ' + port + '.');
+    console.log('sealhouse-server running on port ' + port + '.');
     const isWindows = process.platform === 'win32';
     // console.log('isWindows', isWindows);
     runDbMigrations();

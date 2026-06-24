@@ -316,7 +316,7 @@ function GuestLogin() {
                 <img
                   src={appLogo}
                   className="object-contain h-full"
-                  alt="logo"
+                  alt="Sealhouse"
                 />
               )}
             </div>

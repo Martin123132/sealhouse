@@ -266,6 +266,13 @@ const AddAdmin = () => {
             <div className="w-[95%] md:w-[500px]">
               <form onSubmit={handleSubmit}>
                 <div className="w-full my-4 op-card bg-base-100 shadow-md outline outline-1 outline-slate-300/50">
+                  <div className="w-[220px] h-[58px] mx-auto mt-4 overflow-hidden">
+                    <img
+                      src={appInfo.applogo}
+                      className="object-contain h-full mx-auto"
+                      alt="Sealhouse"
+                    />
+                  </div>
                   <h2 className="text-[30px] text-center mt-3 font-medium">
                     {t("opensign-setup", { appName })}
                   </h2>

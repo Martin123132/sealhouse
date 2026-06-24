@@ -1,7 +1,7 @@
 # Tailwind Dark Mode Usage Guide
 
 ## Overview
-This guide shows how to use the new Tailwind utilities for better dark mode visibility in OpenSign.
+This guide shows how to use the Tailwind utilities for better dark mode visibility in Sealhouse.
 
 ## Button Styling
 
@@ -134,7 +134,7 @@ All ReactTooltip instances now support dark mode:
 ```
 
 ### HoverCard Balloon UI
-The balloon tooltips in OpenSign Drive now properly support dark mode:
+The balloon tooltips in Sealhouse Drive now properly support dark mode:
 
 ```jsx
 // These automatically get dark styling in dark mode
