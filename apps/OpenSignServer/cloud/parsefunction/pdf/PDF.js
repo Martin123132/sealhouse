@@ -345,7 +345,7 @@ async function sendMailsaveCertifcate(doc, pfx, isCustomMail, mailProvider, file
   } else {
     sendCompletedMail({ isCustomMail, doc, mailProvider, filename });
   }
-  saveFileUsage(CertificateBuffer.length, file.imageUrl, doc?.CreatedBy?.objectId);
+  await saveFileUsage(CertificateBuffer.length, file.imageUrl, doc?.CreatedBy?.objectId);
   unlinkFile(pfx.name);
   return file.imageUrl;
 }
@@ -394,13 +394,13 @@ async function PDF(req) {
   const randomNumber = Math.floor(Math.random() * 5000);
   const pfxname = `keystore_${randomNumber}.pfx`;
   try {
-    const userIP = req.headers['x-real-ip']; // client IPaddress
+    const userIP = req.headers?.['x-real-ip'] || '127.0.0.1'; // client IPaddress
     const reqUserId = req.params.userId;
     const isCustomMail = req.params.isCustomCompletionMail || false;
     const mailProvider = req.params.mailProvider || '';
     const sign = req.params.signature || '';
     const auditActivity = 'Signed';
-    const publicUrl = req.headers.public_url;
+    const publicUrl = req.headers?.public_url || process.env.PUBLIC_URL || cloudServerUrl;
     // below bode is used to get info of docId
     const docQuery = new Parse.Query('contracts_Document');
     docQuery.include('ExtUserPtr,Signers,ExtUserPtr.TenantId,Bcc,Cc,CreatedBy');
@@ -545,14 +545,14 @@ async function PDF(req) {
           auditActivity
         );
         sendNotifyMail(_resDoc, signUser, mailProvider, publicUrl);
-        saveFileUsage(pdfSize, data.imageUrl, _resDoc?.CreatedBy?.objectId);
+        await saveFileUsage(pdfSize, data.imageUrl, _resDoc?.CreatedBy?.objectId);
         if (updatedDoc && updatedDoc.isCompleted) {
           const hashForDoc = documentHash || updatedDoc?.DocumentHash;
           const doc = { ..._resDoc, AuditTrail: updatedDoc.AuditTrail, SignedUrl: data.imageUrl };
           if (hashForDoc) {
             doc.DocumentHash = hashForDoc;
           }
-          sendMailsaveCertifcate(doc, pfx, isCustomMail, mailProvider, `signed_${name}`);
+          await sendMailsaveCertifcate(doc, pfx, isCustomMail, mailProvider, `signed_${name}`);
         } else {
           unlinkFile(pfxname);
         }

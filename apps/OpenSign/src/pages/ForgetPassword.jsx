@@ -19,7 +19,7 @@ function ForgotPassword() {
   const [state, setState] = useState({ email: "", password: "", hideNav: "" });
   const [toast, setToast] = useState({ type: "", message: "" });
   const [isLoading, setIsLoading] = useState(false);
-  const [image, setImage] = useState();
+  const [image, setImage] = useState(appInfo.applogo);
 
   const handleChange = (event) => {
     let { name, value } = event.target;
@@ -94,7 +94,7 @@ function ForgotPassword() {
               <img
                 src={image}
                 className="object-contain h-full"
-                alt="applogo"
+                alt="Sealhouse"
               />
             )}
           </div>
@@ -139,7 +139,11 @@ function ForgotPassword() {
             {!state.hideNav && (
               <div className="self-center">
                 <div className="mx-auto md:w-[300px] lg:w-[500px]">
-                  <img src={login_img} alt="bisec" width="100%" />
+                  <img
+                    src={login_img}
+                    alt="The image illustrates a person seated at a desk with a four-monitor computer setup."
+                    width="100%"
+                  />
                 </div>
               </div>
             )}
