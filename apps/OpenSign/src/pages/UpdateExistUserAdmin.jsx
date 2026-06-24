@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import Alert from "../primitives/Alert";
 import { useTranslation } from "react-i18next";
 import { emailRegex } from "../constant/const";
+import { appInfo } from "../constant/appinfo";
 const UpdateExistUserAdmin = () => {
   const appName =
     "Sealhouse";
@@ -92,6 +93,13 @@ const UpdateExistUserAdmin = () => {
                       <Loader />
                     </div>
                   )}
+                  <div className="w-[220px] h-[58px] mx-auto mt-4 overflow-hidden">
+                    <img
+                      src={appInfo.applogo}
+                      className="object-contain h-full mx-auto"
+                      alt="Sealhouse"
+                    />
+                  </div>
                   <h2 className="text-[30px] text-center mt-3 font-medium">
                     {t("opensign-setup", { appName })}
                   </h2>
