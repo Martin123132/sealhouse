@@ -29,6 +29,12 @@ D:\Codex\esignature\src\open-signature\tools\run-server-d-drive.cmd
 D:\Codex\esignature\src\open-signature\tools\run-client-d-drive.cmd
 ```
 
+Or start and verify the full local stack with one D-drive smoke command:
+
+```powershell
+D:\Codex\esignature\src\open-signature\tools\smoke-fullstack-d-drive.cmd
+```
+
 See [D_DRIVE_DEV.md](D_DRIVE_DEV.md) for the storage rules and expected paths.
 
 ## Environment Files
