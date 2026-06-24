@@ -1,29 +1,75 @@
+# Sealhouse Installation
 
-# INSTALLATON INSTRUCTIONS HAS A NEW HOME
+This repository is currently optimized for source-based local development and
+public-safe CI. On this workstation, all generated state should stay on D-drive.
 
-We've updated our installation instructions and moved them to our dedicated documentation portal to provide you with a better experience and updated guidance. Whether you're looking to self-host OpenSign™ or contribute to its development, you can find detailed instructions tailored to your needs at [docs.opensignlabs.com](https://docs.opensignlabs.com).
+## Windows Local Development
 
-## Self Hosting
+Use the D-drive helper scripts:
 
-If you're interested in self-hosting OpenSign™, our new documentation portal provides comprehensive, step-by-step instructions to help you set up OpenSign™ in your own environment. This section is designed for system administrators and those looking to deploy OpenSign™ within their organization or for personal use.
+```powershell
+D:\Codex\esignature\src\open-signature\tools\setup-d-drive-local-env.cmd
+```
 
-- **Access Self Hosting Instructions:** [Self Hosting Guide](https://docs.opensignlabs.com/docs/category/docker)
+```powershell
+D:\Codex\esignature\src\open-signature\tools\install-deps-d-drive.cmd
+```
 
-## Contributors
+Then start the local services from the same D-drive checkout:
 
-For developers and contributors who are looking to build upon or contribute to OpenSign™, we've prepared a separate section that covers the setup, development environment configuration, and guidelines for contributing to the OpenSign™ project.
+```powershell
+D:\Codex\esignature\src\open-signature\tools\run-mongo-d-drive.cmd
+```
 
-- **Access Contributor Instructions:** [Contributors Guide](https://docs.opensignlabs.com/docs/contribute/INSTALLATION)
+```powershell
+D:\Codex\esignature\src\open-signature\tools\run-server-d-drive.cmd
+```
 
-## Additional Resources
+```powershell
+D:\Codex\esignature\src\open-signature\tools\run-client-d-drive.cmd
+```
 
-Should you need further assistance or have any questions, please feel free to reach out to us through our support channels:
+See [D_DRIVE_DEV.md](D_DRIVE_DEV.md) for the storage rules and expected paths.
 
-- **Twitter:** [OpenSignHQ on Twitter](https://twitter.com/OpenSignHQ)
-- **Facebook:** [OpenSign on Facebook](https://www.facebook.com/profile.php?id=61551030403669)
-- **LinkedIn:** [OpenSign™ on LinkedIn](https://www.linkedin.com/company/opensign%E2%84%A2/)
-- **Discord:** [Join our Discord Community](https://discord.com/invite/opensign)
-- **YouTube:** [OpenSignHQ on YouTube](https://www.youtube.com/@opensignhq)
+## Environment Files
 
-We are committed to providing you with the support you need to successfully install and use OpenSign™. Visit our website at [www.opensignlabs.com](https://www.opensignlabs.com) for more information about our project and its features.
+Copy one of the examples and keep the generated file private:
 
+- `.env.example` for generic defaults.
+- `.env.d-drive.example` for this D-drive development layout.
+
+Do not commit real `.env` files, credentials, keys, certificates, uploaded
+documents, or generated signing output.
+
+## Docker
+
+Docker support is still compatibility-first. The compose file currently uses
+upstream OpenSign image names because Sealhouse has not published dedicated
+container images yet.
+
+Before using Docker with real data:
+
+- review `docker-compose.yml`
+- configure a private `.env.prod`
+- use persistent MongoDB storage
+- understand that the `opensign-files` volume name is a compatibility surface
+
+For local product work on this machine, prefer the D-drive source setup until
+Docker Desktop storage is confirmed to use D-drive-backed data.
+
+## Validation
+
+After setup, run the focused checks that match your change:
+
+```powershell
+tools\build-client-d-drive.cmd
+```
+
+```powershell
+cd apps\OpenSignServer
+node --check index.js
+```
+
+```powershell
+npm run test:smoke
+```

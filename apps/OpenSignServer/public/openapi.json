@@ -26,7 +26,7 @@
   "tags": [
     {
       "name": "Sealhouse",
-      "description": "OpenSource DocuSign alternative",
+      "description": "Self-hosted document signing",
       "externalDocs": {
         "description": "Find out more",
         "url": "http://127.0.0.1:3000"

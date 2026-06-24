@@ -1,6 +1,6 @@
 # Sealhouse Development
 
-Sealhouse is currently staged as a private GitHub repository while the fork is cleaned up for public release. Treat `main` as the release branch, `develop` as the integration branch, and short-lived feature branches as the normal place for new work.
+Sealhouse is a public GitHub repository. Treat `main` as the protected release branch, `develop` as the integration branch, and short-lived feature branches as the normal place for new work.
 
 ## Branch Flow
 
@@ -46,6 +46,25 @@ node --check index.js
 
 GitHub Actions runs both checks on Windows so the CI path matches the local D-drive assumptions as closely as possible.
 
+Signing-flow smoke test:
+
+```bat
+cd /d D:\Codex\esignature\src\open-signature\apps\OpenSignServer
+set TESTING=true&& npx.cmd jasmine --random=false
+```
+
+The smoke test generates a synthetic admin, signer, PDF, signature image, and PFX certificate at runtime. It must not use real customer documents, real signatures, production certificates, or external mail/storage services.
+
+GitHub Actions runs the same generated-data smoke on a Windows runner. The CI job starts MongoDB with `mongodb-runner` and keeps runner metadata, downloads, logs, and temp files under the Actions temp directory.
+
 ## Privacy And Publication
 
-Keep the GitHub repository private until the public proof repo is ready. Before switching visibility, re-check the repository for credentials, private certificates, generated documents, hosted-service defaults, and inherited upstream publishing workflows.
+The GitHub repository is public. Before pushing, re-check the repository for credentials, private certificates, generated documents, hosted-service defaults, and inherited upstream publishing workflows.
+
+## UI Identity Lane
+
+The current Sealhouse rebrand now covers repository metadata, English UI copy,
+public docs, and default browser/manifest assets. A deeper UI identity pass
+should separately revisit navigation, empty states, signer-facing screens,
+secondary illustrations, palette, and product voice so the app feels natively
+Sealhouse rather than a renamed fork.
