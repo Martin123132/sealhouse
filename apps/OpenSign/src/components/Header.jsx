@@ -153,7 +153,7 @@ const Header = ({ isConsole, setIsLoggingOut }) => {
                       ? "/static/js/assets/images/logo-dark.png"
                       : applogo
                 }
-                alt="logo"
+                alt="Sealhouse"
               />
             )}
           </div>
