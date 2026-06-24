@@ -3,10 +3,16 @@
 Sealhouse is a self-hosted document signing app for people who want private
 signature workflows without another subscription gate.
 
-The project is public and AGPL-3.0 licensed. It is being shaped as a practical
-open source alternative for uploading PDFs, placing signing fields, sending or
-sharing signature requests, completing signatures, and keeping audit evidence
-under the control of the instance owner.
+The project is public source-available software under the PolyForm
+Noncommercial License 1.0.0. Personal and non-commercial use is permitted by
+the public license. Commercial use requires a separate written commercial
+license from TWO HANDS NETWORK LTD before using Sealhouse in a paid product,
+hosted service, managed service, enterprise product, commercial developer tool,
+commercial AI system, or commercial AI training/evaluation pipeline.
+
+Sealhouse is being shaped as a practical self-hosted alternative for uploading
+PDFs, placing signing fields, sending or sharing signature requests, completing
+signatures, and keeping audit evidence under the control of the instance owner.
 
 ## Current Status
 
@@ -92,9 +98,20 @@ and any temporary output under D-drive paths.
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Keep work
 small, public-safe, and aimed at `develop`.
 
-## License And Attribution
+## License And Commercial Use
 
-Sealhouse is licensed under the AGPL-3.0 license. See [LICENSE](LICENSE).
+Sealhouse is licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE).
+See [NOTICE.md](NOTICE.md) for the required notice and
+[COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md) for commercial licensing
+boundaries.
+
+In short: personal, hobby, research, educational, public-interest, and other
+non-commercial uses are permitted by the public license. Commercial use is not
+included in the public license and requires a separate written commercial
+license from TWO HANDS NETWORK LTD. Commercial licensing discussions should go
+through the company's COO.
+
+Sealhouse is source-available software, not open-source software.
 
 Sealhouse began from the OpenSign codebase. Some internal names, theme IDs,
 routes, Docker image references, and compatibility identifiers still retain
