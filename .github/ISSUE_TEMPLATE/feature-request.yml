@@ -1,19 +1,19 @@
-name: Feature Request
-description: Suggest an idea for OpenSign™
+name: "Feature Request"
+description: Suggest an idea for Sealhouse.
 title: "Feature Request: [Short Description]"
-labels: [feature request, needs triage]
+labels: ["feature request", "needs triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        ## Thanks for taking the time to fill out this feature request!
+        Thanks for taking the time to suggest an improvement to Sealhouse.
 
   - type: input
     id: title
     attributes:
       label: Feature Title
       description: What would you call this feature?
-      placeholder: e.g., Advanced Signature Verification
+      placeholder: e.g. Advanced Signature Verification
     validations:
       required: true
 
@@ -21,23 +21,24 @@ body:
     id: feature-description
     attributes:
       label: Feature Description
-      description: |
-        Please provide a detailed description of the feature you're proposing.
-      placeholder: |
-        e.g., I'm proposing an advanced signature verification feature that...
+      description: Please describe the feature and the workflow it improves.
+      placeholder: I am proposing...
     validations:
-      required: true  
+      required: true
+
   - type: dropdown
     id: featuretype
     attributes:
-      label: What type of feature are you requesting?
+      label: Feature Type
       multiple: true
       options:
-        - UI/UX Improvement
-        - Security / Compliance
-        - Performance / Optimization
-        - 3rd party integration
+        - UI/UX improvement
+        - Security / compliance
+        - Performance / optimization
+        - Integration
+        - Documentation
         - Other
+
   - type: dropdown
     id: importance
     attributes:
@@ -55,16 +56,16 @@ body:
     id: additional-context
     attributes:
       label: Additional Context
-      description: Any other context or screenshots about the feature request here.
-      placeholder: Additional details, examples, or screenshots...
+      description: Add any other context, examples, or safe screenshots.
+      placeholder: Additional details...
 
   - type: checkboxes
     id: terms
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://www.opensignlabs.com)
+      label: Code Of Conduct
+      description: By submitting this request, you agree to follow the Sealhouse Code of Conduct.
       options:
-        - label: I agree to follow this project's Code of Conduct
+        - label: I agree to follow this project's Code of Conduct.
           required: true
-        - label: I have searched the existing issues & discussions to make sure that this is not a duplicate.
+        - label: I have searched existing issues and discussions for duplicates.
           required: true

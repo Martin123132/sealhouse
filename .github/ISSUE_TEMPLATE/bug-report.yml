@@ -1,73 +1,85 @@
 name: "Bug Report"
-labels: ["bug","up-for-grabs"]
+description: Create a bug report to help improve Sealhouse.
 title: "[Bug]: "
-assignees:
-  - andrew-opensignlabs
-description: Create a bug report to help us make OpenSign™ the world's best document e-signature platform
+labels: ["bug", "up-for-grabs"]
 body:
   - type: textarea
     attributes:
       label: Issue Description
-      description: Please provide a clear & concise description of the problem. 
+      description: Please provide a clear and concise description of the problem.
+    validations:
+      required: true
+
   - type: textarea
     attributes:
       label: Expected Behavior
       description: Describe what you expected to happen.
+
   - type: textarea
     attributes:
       label: Current Behavior
       description: Describe what is happening instead.
+
   - type: textarea
     attributes:
-      label: Steps to reproduce
-      description: Please provide step-by-step instructions to reproduce the issue. Include code snippets, URLs, error messages and any other relevant information.
+      label: Steps To Reproduce
+      description: Include step-by-step instructions, URLs, error messages, and any relevant non-sensitive details.
+    validations:
+      required: true
+
   - type: textarea
     attributes:
-      label: Screenshots of the issue(optional)
-      description: Add screenshots to better explain the issue.
+      label: Screenshots
+      description: Add screenshots if they help explain the issue. Do not include private documents, signatures, credentials, or customer data.
+
   - type: input
     attributes:
-      label: Operating System [e.g. MacOS Sonoma 14.1, Windows 11]
+      label: Operating System
+      placeholder: Windows 11, macOS Sonoma 14.1, Ubuntu 24.04
+
   - type: dropdown
     id: browsers
     attributes:
-      label: What browsers are you seeing the problem on?
+      label: Browser
       multiple: true
       options:
         - Chrome
         - Firefox
         - Safari
         - Microsoft Edge
-      default: 0
+
   - type: input
     attributes:
-      label: What version of OpenSign™ are you seeing this issue on? [e.g. 1.0.6]
+      label: Sealhouse Version
+      placeholder: e.g. 1.0.6
     validations:
       required: true
+
   - type: dropdown
     id: environment
     attributes:
-      label: What environment are you seeing the problem on?
+      label: Environment
       multiple: true
       options:
-        - Production (app.opensignlabs.com)
-        - Staging (staging-app.opensignlabs.com)
-        - Hosted (app.yourdomain.com)
-        - Dev (localhost or vercel)
+        - Self-hosted production
+        - Self-hosted staging
+        - Hosted on my own domain
+        - Local development
+
   - type: checkboxes
     attributes:
-      label: Please check the boxes that apply to this issue report.
+      label: Public Safety
       options:
-        - label: I have searched the existing issues & discussions to make sure that this is not a duplicate.
-    validations:
-      required: true
+        - label: I have removed private documents, signatures, credentials, customer data, and sensitive URLs from this report.
+          required: true
+        - label: I have searched existing issues and discussions for duplicates.
+          required: true
+
   - type: checkboxes
     id: terms
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://www.opensignlabs.com)
+      label: Code Of Conduct
+      description: By submitting this issue, you agree to follow the Sealhouse Code of Conduct.
       options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
-        - label: I have searched the existing issues & discussions to make sure that this is not a duplicate.
+        - label: I agree to follow this project's Code of Conduct.
           required: true
