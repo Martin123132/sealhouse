@@ -1,25 +1,32 @@
-# Open Sign
+# Sealhouse Frontend
 
-Open source is true platform to sign pdf with digital signature
+This app is the Sealhouse browser client for self-hosted document signing.
 
-## Available Scripts
+The folder name is still `apps/OpenSign` for compatibility with the inherited
+workspace layout, Docker files, CI paths, and local helper scripts. Treat that
+path as an internal compatibility name until it can be changed with a tested
+migration.
 
-In the project directory, you can run:
+## Useful Commands
 
-### `npm start`
+Install dependencies from this folder:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```powershell
+npm ci
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Run the local development server:
 
-### `npm run build`
+```powershell
+npm run dev
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Build the production client using the D-drive safe wrapper from the repository
+root:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```powershell
+tools\build-client-d-drive.cmd
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The build script writes generated output and temporary data under D-drive paths
+for this workstation.

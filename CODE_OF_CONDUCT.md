@@ -1,6 +1,6 @@
 # Sealhouse Code Of Conduct
 
-Sealhouse should be a friendly, safe, and useful open source project for
+Sealhouse should be a friendly, safe, and useful source-available project for
 contributors and users with many different backgrounds and levels of experience.
 
 ## Expected Behavior
