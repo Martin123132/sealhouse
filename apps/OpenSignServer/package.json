@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/Martin123132/sealhouse"
   },
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "scripts": {
     "coverage": "TESTING=true nyc jasmine",
