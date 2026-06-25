@@ -33,6 +33,13 @@ $checks = @(
     Patterns = @(
       "open source project"
     )
+  },
+  @{
+    Path = "apps/OpenSignServer/Utils.js"
+    Patterns = @(
+      "'Open Signature'",
+      '"Open Signature"'
+    )
   }
 )
 
