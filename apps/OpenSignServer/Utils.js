@@ -17,7 +17,7 @@ dotenv.config({ quiet: true });
 
 export const cloudServerUrl = process.env.SERVER_URL || 'http://localhost:8080/app';
 export const serverAppId = process.env.APP_ID || 'opensign';
-export const appName = process.env.APP_NAME || process.env.appName || 'Open Signature';
+export const appName = process.env.APP_NAME || process.env.appName || 'Sealhouse';
 export const supportEmail = process.env.SUPPORT_EMAIL || '';
 export const abuseEmail = process.env.ABUSE_EMAIL || supportEmail || '';
 export const prefillDraftDocWidget = ['date', 'textbox', 'checkbox', 'radio button', 'image'];
