@@ -78,4 +78,5 @@ routes, Parse class names, and persisted app identifiers.
 ## License
 
 By contributing, you agree that your contribution will be licensed under the
-AGPL-3.0 license used by this repository.
+repository's current license terms described in `LICENSE`, `NOTICE.md`, and
+`COMMERCIAL-LICENSE.md`.
