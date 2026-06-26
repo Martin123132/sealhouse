@@ -9,9 +9,10 @@ the working signing flow, CI smoke tests, and public-safe development posture.
 - Browser metadata is Sealhouse-facing: `apps/OpenSign/index.html`,
   `apps/OpenSign/public/manifest.json`, and the public API docs use the product
   name and self-hosted description.
-- The English locale has a first-pass Sealhouse copy cleanup for visible
-  paid-plan, billing, credit, subscription, and old OpenSign plan labels. The
-  locale keys remain stable to avoid breaking component wiring.
+- The shipped locales have a first-pass Sealhouse cleanup for visible plan
+  labels, and the English locale also has cleanup for paid-plan, billing,
+  credit, and subscription copy. The locale keys remain stable to avoid
+  breaking component wiring.
 - Default visible assets now include Sealhouse favicon, manifest icons, and a
   dark-mode logo fallback while preserving existing asset filenames and import
   paths.
@@ -22,8 +23,8 @@ the working signing flow, CI smoke tests, and public-safe development posture.
   `opensign`, `Opensigndrive` component and style names, locale keys such as
   `opensign-setup`, and comments like `isOpenSignPad`.
 - The visible UI still has secondary inherited images to audit, especially
-  login and document illustrations. The default logo, dark logo, favicon, and
-  manifest icons are now Sealhouse-owned placeholders.
+  login and document illustrations. The default logo, dark logo, favicon,
+  manifest icons, and certificate logo are now Sealhouse-owned placeholders.
 - Locales are partly reworded to Sealhouse, but some keys still describe old
   commercial concepts such as credits, plans, billing, and subscriptions.
 
