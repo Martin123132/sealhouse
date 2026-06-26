@@ -40,6 +40,25 @@ $checks = @(
       "'Open Signature'",
       '"Open Signature"'
     )
+  },
+  @{
+    Path = "docker-compose.yml"
+    Patterns = @(
+      "OpenSignServer-container",
+      "OpenSign-container"
+    )
+  },
+  @{
+    Path = "apps/OpenSign/examples/tailwind-usage-examples.js"
+    Patterns = @(
+      "Usage Examples for OpenSign"
+    )
+  },
+  @{
+    Path = "apps/OpenSign/examples/tailwind-usage-examples.jsx"
+    Patterns = @(
+      "Usage Examples for OpenSign"
+    )
   }
 )
 
@@ -58,6 +77,18 @@ foreach ($check in $checks) {
       $failures.Add("$($check.Path) contains stale public branding: $pattern")
     }
   }
+}
+
+$localeRoot = Join-Path $repoRoot "apps/OpenSign/public/locales"
+if (Test-Path -LiteralPath $localeRoot) {
+  Get-ChildItem -LiteralPath $localeRoot -Recurse -Filter "translation.json" |
+    ForEach-Object {
+      $content = Get-Content -Raw -LiteralPath $_.FullName
+      if ($content -cmatch "OPENSIGN") {
+        $relativePath = $_.FullName.Substring($repoRoot.Path.Length + 1)
+        $failures.Add("$relativePath contains stale public branding: OPENSIGN")
+      }
+    }
 }
 
 if ($failures.Count -gt 0) {
