@@ -12,6 +12,11 @@ updates:
           - "minor"
           - "patch"
     ignore:
+      # Major frontend migrations are handled deliberately so Dependabot does
+      # not keep reopening incompatible upgrade PRs.
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
       - dependency-name: "@babel/*"
         update-types:
           - "version-update:semver-major"
@@ -30,6 +35,12 @@ updates:
         update-types:
           - "minor"
           - "patch"
+    ignore:
+      # Keep routine maintenance PRs to minor/patch updates; major server
+      # upgrades should be reviewed as explicit migration work.
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
 
   - package-ecosystem: "npm"
     directory: "/microfrontends/SignDocuments"
@@ -42,3 +53,9 @@ updates:
         update-types:
           - "minor"
           - "patch"
+    ignore:
+      # Keep routine maintenance PRs to minor/patch updates; major frontend
+      # upgrades should be reviewed as explicit migration work.
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
