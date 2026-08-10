@@ -19,8 +19,8 @@
     "watch": "nodemon index.js"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.1096.0",
-    "@aws-sdk/s3-request-presigner": "^3.1096.0",
+    "@aws-sdk/client-s3": "^3.1106.0",
+    "@aws-sdk/s3-request-presigner": "^3.1106.0",
     "@parse/fs-files-adapter": "^3.0.0",
     "@parse/push-adapter": "^8.5.2",
     "@parse/s3-files-adapter": "^5.3.1",
@@ -28,7 +28,7 @@
     "@signpdf/placeholder-pdf-lib": "^3.3.0",
     "@signpdf/signer-p12": "^3.3.0",
     "@signpdf/signpdf": "^3.3.0",
-    "axios": "^1.18.1",
+    "axios": "^1.19.0",
     "coherentpdf": "^2.5.5",
     "cors": "^2.8.6",
     "date-fns-tz": "^3.2.0",
@@ -51,12 +51,12 @@
     "parse-server": "^8.6.87",
     "parse-server-api-mail-adapter": "^5.0.5",
     "pdf-lib": "^1.17.1",
-    "posthog-node": "^5.46.1",
+    "posthog-node": "^5.48.1",
     "qrcode": "^1.5.4",
     "rate-limiter-flexible": "^10.0.1",
     "sharp": "^0.35.3",
     "speakeasy": "^2.0.0",
-    "ws": ">=8.21.1"
+    "ws": ">=8.21.3"
   },
   "type": "module",
   "devDependencies": {
